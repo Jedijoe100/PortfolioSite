@@ -29,7 +29,7 @@ router
     .get('/*', async function (req, res, next) {
         let id = req.path.split('/')[1]
         if(isNumeric(id)){
-            let projects = await fetchAll(db, "SELECT * FROM Projects WHERE display > 2 AND ID = "+id + ";");
+            let projects = await fetchAll(db, "SELECT * FROM Projects WHERE display >= 2 AND ID = "+id + ";");
             if(projects.length>0){
                 let details = projects[0].detail.split('/')
                 let content;
