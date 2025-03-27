@@ -1,0 +1,27 @@
+{
+    "database": "default.db",
+    "public": {
+    "title": "Portfolio",
+    "website": "example.com",
+    "email": "example@email.com",
+    "cv_name": "Example_CV_NAME",
+    "socials": [
+            {
+                "type": "linkedin",
+                "user": "Example",
+                "link": "insert link"
+            },
+            {
+                "type": "Github",
+                "user": "Example",
+                "link": "insert link"
+            }
+        ],
+        "phone": "0123456789",
+        "about": "A blurb about you",
+        "theme": "ForestGreen"
+    },
+    "secrets": {
+        "github_token": "enter token here"
+    }
+}

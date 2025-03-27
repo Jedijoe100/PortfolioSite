@@ -1,0 +1,36 @@
+<%- include('./templates/header'); -%>
+
+<h2>About</h2>
+<p><%= data.about %></p>
+
+<h2><a class="green_link" href="/projects">Projects</a></h2>
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+  <div class="carousel-inner project_container">
+<% projects.forEach((item, i) => { %>
+    <div class="carousel-item<%if(i==0){%><%=' active'%><%}%> project_container" id="Projects_<%=item.ID%>">
+    <%- include('./templates/project_lite', item) %>
+    </div>
+<%}); %>
+  </div>
+<a class="carousel-control-prev bg-dark p-4 rounded-1" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </a>
+  <a class="carousel-control-next bg-dark p-4 rounded-1" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </a>
+</div>
+<br>
+<h2>Previous Work</h2>
+<% experience.forEach((item) => { %>
+    <%- include('./templates/experience', item) %>
+<%}); %>
+<h2>Education</h2>
+<% education.forEach((item) => { %>
+    <%- include('./templates/education', item) %>
+<%}); %>
+<h2>Skills</h2>
+<%- include('./templates/skills', {'skills': skills}) %>
+
+<%- include('./templates/other', {'other': other})%>
+
+<%- include('./templates/footer'); -%>

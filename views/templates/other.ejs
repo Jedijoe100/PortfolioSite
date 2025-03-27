@@ -1,0 +1,13 @@
+<div class="row" >
+<%for (const [key, value] of Object.entries(other)) {%>
+    <div class="col-sm-6">
+        <br>
+        <h2><%=key%></h2>
+        <ul class="list-group">
+            <%value.forEach(element => {%>
+                <li class="list-group-item" id="Other_<%=element.ID%>"><%=element.title%> <%= element.date%></li>
+            <%});%>
+        </ul>
+    </div>
+<%}%>
+</div>

@@ -1,0 +1,49 @@
+h1, h2 {
+    color: #129f57;
+    border-bottom: 1px solid #129f57;
+}
+body {
+    font-family: sans-serif;
+}
+.project_short {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.project_image {
+    object-fit: scale-down;
+    width:100%;
+    height:100%;
+    top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.project_container {
+    height: 800px;
+    position: relative;
+}
+.project_container_medium {
+    height: 600px;
+    position: relative;
+}
+.bottom {
+    padding: 15px;
+}
+a:link {
+    text-decoration: none;
+    color: #129f57;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #129f57;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #117a44;
+}
+
+a:active {
+    text-decoration: none;
+    color: #117a44;
+} 

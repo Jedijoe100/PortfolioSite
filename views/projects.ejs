@@ -1,0 +1,12 @@
+
+<%- include('./templates/header'); -%>
+<h1>Projects</h1>
+<div class="row">
+    <% projects.forEach((item, i) => { %>
+        <div class="col-sm-6 project_container_medium">
+        <%- include('./templates/project_lite', item) %>
+        </div>
+    <%}); %>
+</div>
+
+<%- include('./templates/footer'); -%>

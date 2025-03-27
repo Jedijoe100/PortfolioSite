@@ -1,0 +1,20 @@
+
+<%- include('./templates/header'); -%>
+<a href="<%= project.link %>"><h1><%= project.title %></h1></a>
+        <h5>
+        <%= /\d{4}/.exec(project.date_start) %> - 
+        <% if(project.date_finish != null){%>
+             <%=/\d{4}/.exec(project.date_finish)%>
+        <%}%>
+        </h5>
+        <h5>
+            <%skills.forEach(element => {%><%=element.skill%> <%})%>
+        </h5>
+        <img class='w-100' src="<%=project.image%>">
+        <p><%=project.short%></p>
+        
+        <h2>About Project</h2>
+        <div>
+            <%- content.data %>
+        </div>
+<%- include('./templates/footer'); -%>
