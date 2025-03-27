@@ -1,0 +1,17 @@
+<br>
+<br>
+<footer class="bottom">
+    <p>Email: <%= data.email %><br>
+    <% data.socials.forEach((item) => {%>
+        <%= item.type%>: <a href="<%= item.link%>"><%= item.user%></a><br>
+    <%});%>
+</p>
+</footer>
+    <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    })
+    </script>
+</body>
+</html>

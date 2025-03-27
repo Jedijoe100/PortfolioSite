@@ -1,0 +1,87 @@
+\documentclass[letterpaper,11pt]{article}
+
+\def\theme{<%= data.theme %>}
+
+\usepackage{simplecv}
+
+\begin{document} 
+
+% Heading
+\headinginline{<%= data.name %>}{}
+<% if (data.website != "") {%>Website: \website{<%= data.website %>}
+<% } %>
+<% if (data.email != "") {%>Email: \email{<%= data.email %> } 
+<% } %>
+<% data.socials.forEach(social => {%>
+<%= social.type %>: <%= social.link %>
+<% }); if (data.phone != ""){%>
+Phone Number: <%= data.phone%> <%}%>
+
+
+% Page One
+\section*{About}
+<%= data.about%>
+
+\section{Education}
+\outerlist{
+<% education.forEach(element => {%>
+\entrybig{\textbf{<%=element.provider%>}}{}
+{<%= element.topic%>, <%= element.grade %>}{
+        <%= /\d{4}/.exec(element.date_start) %> - 
+        <% if(element.date_finish != null){%>
+             <%=/\d{4}/.exec(element.date_finish)%>
+        <%}%>
+}
+<% if (element.description != ""){ %>
+\innerlist{
+	\entry{<%= element.description %>}
+}
+<%}%>
+<%});%>
+}
+\section{Projects}
+See full list of projects on \website{https://kentfamily.nz/portfolio}
+\outerlist{
+<% projects.forEach(element => {%>
+\entrybig
+{<%=element.title %> (<% if(element.skills != null){%><%= element.skills%>; <%}%><%= /\d{4}/.exec(element.date_start) %> - <% if(element.date_finish != null){%><%=/\d{4}/.exec(element.date_finish)%><%}%>)}{}
+{\url{<%= element.link %>}}{}
+<% if (element.short != ""){ %>
+\innerlist{
+	\entry{<%= element.short %>}
+}
+<%}%>
+<%});%>
+}
+
+\lfoot{<%= data.name %>}\cfoot{<%= data.email %>}
+\pagebreak
+
+% Page Two
+\section{Experience}
+\outerlist{
+<% experience.forEach(element => {%>
+\entrybig
+	{\textbf{<%= element.company %>}}{<%= element.location %>}
+	{<%=element.title%>}{<%= /\d{4}/.exec(element.date_start) %> - <% if(element.date_finish != null){%><%=/\d{4}/.exec(element.date_finish)%><%}%>}
+\innerlist{
+	\entry{<%= element.description%>}
+}
+<%});%>
+}
+\section{Skills}
+\denseouterlist{
+<%for (const [key, value] of Object.entries(skills)) {%>
+\entry{\textbf{<%= key%> Skills}: <%=value%>}
+<%}%>
+}
+<%for (const [key, value] of Object.entries(other)) {%>
+\section{<%= key%>}
+\denseouterlist{
+    <% value.forEach(element => { %>
+    \entry
+    {<%=element.title%> \it{<%=element.description%>}\hfill <%= element.date%>}
+    <%})%>
+}
+<%}%>
+\end{document}
