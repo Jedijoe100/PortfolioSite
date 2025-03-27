@@ -4,14 +4,14 @@
     <div class="col-sm-6" style="text-align: right;"><h5><%= location%></h5></div>
 </div>
 <div class="row">
-    <div class="col-sm-6" style="text-align: left;"><h4><%= title%></h4></div>
-    <div class="col-sm-6" style="text-align: right;"><h5>
+    <div class="col-sm-6" style="text-align: left;"><h6><%= title%></h6></div>
+    <div class="col-sm-6" style="text-align: right;"><h6>
         <% if(date_finish != null){%>
             <%= date_start + " to " + date_finish%>
         <%}else{%>
             <%= date_start + ", on going"%>
         <%}%>
-    </h5></div>
+    </h6></div>
 </div>
 <p>
 <%= description%>
