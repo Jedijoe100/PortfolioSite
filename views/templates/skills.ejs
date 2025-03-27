@@ -1,11 +1,11 @@
 <div class="container">
-    <ul class="list-group">
+    <div class="row">
         <%for (const [key, value] of Object.entries(skills)) {%>
-            <li class="list-group-item"><%=key%> Skills: 
-                <%value.forEach(element => {%>
-                    <a tabindex="0" role="button" data-bs-toggle="popover" title="<%=element.skill%>" data-bs-html="true" data-bs-content="<% element.evidence.forEach(item => {%><a href='<% if(item.type == 'Projects'){%>/<%=item.type%>/<%=item.ID%><%}else{%> #<%=item.type%>_<%=item.ID%><%}%>'><%=item.title%></a><br><%}); %> "><%=element.skill%></a>
+            <div class="col-sm-6"><b><%=key%> Skills:</b><br>
+                <%value.forEach((element, index) => {%>
+                    <a tabindex="0" role="button" data-bs-toggle="popover" title="<%=element.skill%>" data-bs-html="true" data-bs-content="<% element.evidence.forEach(item => {%><a href='<% if(item.type == 'Projects'){%>/<%=item.type%>/<%=item.ID%><%}else{%> #<%=item.type%>_<%=item.ID%><%}%>'><%=item.title%></a><br><%}); %> "><%=element.skill%><%if(index<value.length-1){%>, <%}%></a>
                 <%})%>
-            </li>
+            </div>
         <%}%>
-    </ul>
+    </div>
 </div>
